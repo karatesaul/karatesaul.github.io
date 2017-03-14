@@ -2,7 +2,15 @@
     font-family: "Open Sans", sans-serif;
 }
 
+h1 {
+    text-align: center;
+}
+
 #top-nav {
     display: flex;
+    display: -webkit-flex;
     flex-direction: row;
+    -webkit-flex-direction: row;
+    justify-content: center;
+    -webkit-justify-content: center;
 }
