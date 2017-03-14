@@ -15,6 +15,15 @@ h1 {
     -webkit-justify-content: center;
 }
 
+#top-nav ul {
+    padding: 0;
+}
+
+#top-nav a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
 #main {
     width: 800px;
     margin-left: auto;
