@@ -40,10 +40,10 @@ div.gameinfo {
 }
 
 img.gamelogo {
-    display: block;
     max-width: 500px;
 }
 
 .gamelogo {
     margin: 5px auto;
+    display: block;
 }
