@@ -6,6 +6,10 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    text-align: center;
+}
+
 #top-nav {
     display: flex;
     display: -webkit-flex;
@@ -28,4 +32,10 @@ h1 {
     width: 800px;
     margin-left: auto;
     margin-right: auto;
+}
+
+img.gamelogo {
+    display: block;
+    max-width: 500px;
+    margin: 5px auto;
 }
