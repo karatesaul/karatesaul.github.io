@@ -2,6 +2,11 @@
     font-family: "Open Sans", sans-serif;
 }
 
+body {
+    background-color: #f0f8ff;
+    color: #00080f;
+}
+
 h1 {
     text-align: center;
 }
