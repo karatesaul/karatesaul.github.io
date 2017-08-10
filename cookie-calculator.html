@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+	<title>Cookie Clicker Building Calculator</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<script src="./js/cookie-calculator.js"></script>
+	<style>
+		* {
+			background-color: #1f1f1f;
+			color: #e0e0e0;
+		}
+		table {
+			border-spacing: 5px 0;
+		}
+		button {
+			border: solid 1px #e0e0e0;
+			padding: 1px 3px;
+		}
+		input.number {
+			border: solid 1px #e0e0e0;
+			width: 4em;
+		}
+		label {
+			margin: auto 10px;
+		}
+		td.display {
+			text-align: right;
+		}
+	</style>
+</head>
+<body ng-app="cookieCalculator" ng-controller="ctrl">
+	<div>
+		<label>
+			<input type="checkbox" ng-model="shortNumbers">
+			<span>Short Numbers</span>
+		</label>
+		<label>
+			<input type="checkbox" ng-model="show10">
+			<span>Show 10</span>
+		</label>
+		<label>
+			<input type="checkbox" ng-model="show50">
+			<span>Show 50</span>
+		</label>
+		<label>
+			<input type="checkbox" ng-model="show100">
+			<span>Show 100</span>
+		</label>
+		<span>&nbsp;|&nbsp;+/-&nbsp;</span>
+		<label>
+			<input type="radio" ng-model="incrementVal" ng-value="increments[0]">
+			<span>1</span>
+		</label>
+		<label>
+			<input type="radio" ng-model="incrementVal" ng-value="increments[1]">
+			<span>10</span>
+		</label>
+		<label>
+			<input type="radio" ng-model="incrementVal" ng-value="increments[2]">
+			<span>50</span>
+		</label>
+		<label>
+			<input type="radio" ng-model="incrementVal" ng-value="increments[3]">
+			<span>100</span>
+		</label>
+	</div>
+	<div>
+		<label>
+			<input type="checkbox" ng-model="fabergeEgg">
+			<span>Faberge Egg</span>
+		</label>
+		<label>
+			<input type="checkbox" ng-model="seasonSavings">
+			<span>Season's Savings</span>
+		</label>
+		<label>
+			<input type="checkbox" ng-model="SantasDominion">
+			<span>Santa's Dominion</span>
+		</label>
+		<span>|</span>
+		<label>
+			<input type="checkbox" ng-model="divineDiscount">
+			<span>Divine Discount</span>
+		</label>
+		<label>
+			<input type="checkbox" ng-model="starterKit">
+			<span>Starter Kit</span>
+		</label>
+		<label>
+			<input type="checkbox" ng-model="starterKitchen">
+			<span>Starter Kitchen</span>
+		</label>
+		<span>|</span>
+		<label>
+			<input type="checkbox" ng-model="earthShatterer">
+			<span>Earth Shatterer</span>
+		</label>
+		<label>
+			<input type="checkbox" ng-model="fierceHoarder">
+			<span>Fierce Hoarder</span>
+		</label>
+	</div>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Current</th>
+			<th>Desired</th>
+			<th>Price (1)</th>
+			<th ng-if="show10">Price (10)</th>
+			<th ng-if="show50">Price (50)</th>
+			<th ng-if="show100">Price (100)</th>
+			<th>Price (Desired)</th>
+			<th>Paid</th>
+		</tr>
+		<tr ng-repeat="building in buildings track by $index">
+			<td>{{building.name}}</td>
+			<td>
+				<button ng-click="increment(building, 'current')">+</button>
+				<input class="number" type="number" min="0" ng-model="building.current">
+				<button ng-click="decrement(building, 'current')">-</button>				
+			</td>
+			<td>
+				<button ng-click="increment(building, 'desired')">+</button>
+				<input class="number" type="number" min="0" ng-model="building.desired">
+				<button ng-click="decrement(building, 'desired')">-</button>				
+			</td>
+			<td class="display">
+				{{priceDiff(building, building.current + 1) | cookieNumber : shortNumbers}}
+			</td>
+			<td class="display" ng-if="show10">
+				{{priceDiff(building, building.current + 10) | cookieNumber : shortNumbers}}
+			</td>
+			<td class="display" ng-if="show50">
+				{{priceDiff(building, building.current + 50) | cookieNumber : shortNumbers}}
+			</td>
+			<td class="display" ng-if="show100">
+				{{priceDiff(building, building.current + 100) | cookieNumber : shortNumbers}}
+			</td>
+			<td class="display">
+				{{priceDiff(building, building.desired) | cookieNumber : shortNumbers}}
+			</td>
+			<td class="display">
+				{{priceDiff(0, building.current) | cookieNumber : shortNumbers}}
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
