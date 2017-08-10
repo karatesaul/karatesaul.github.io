@@ -64,6 +64,7 @@
 			<span>100</span>
 		</label>
 	</div>
+	<!-- not working yet
 	<div>
 		<label>
 			<input type="checkbox" ng-model="fabergeEgg">
@@ -71,7 +72,7 @@
 		</label>
 		<label>
 			<input type="checkbox" ng-model="seasonSavings">
-			<span>Season's Savings</span>
+			<span>Season Savings</span>
 		</label>
 		<label>
 			<input type="checkbox" ng-model="SantasDominion">
@@ -100,6 +101,7 @@
 			<span>Fierce Hoarder</span>
 		</label>
 	</div>
+	-->
 	<table>
 		<tr>
 			<th>Name</th>
@@ -140,7 +142,7 @@
 				{{priceDiff(building, building.desired) | cookieNumber : shortNumbers}}
 			</td>
 			<td class="display">
-				{{priceDiff(0, building.current) | cookieNumber : shortNumbers}}
+				{{priceDiff(building, building.current, 0) | cookieNumber : shortNumbers}}
 			</td>
 		</tr>
 	</table>

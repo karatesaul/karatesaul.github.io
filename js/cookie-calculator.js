@@ -105,10 +105,20 @@ app.controller('ctrl', ['$scope', function ($scope) {
 		}
 	};
 
-	$scope.priceDiff = function (obj, desired) {
+	$scope.priceDiff = function (obj, desired, current) {
 		var sum = 0;
-		for (var i = obj.current; i < desired; i++) {
-			sum += Math.ceil(obj.initial * Math.pow(1.15, i));
+		if (current === undefined) {
+			current = obj.current;
+		}
+
+		for (var i = current; i < desired; i++) {
+			var price = obj.initial * Math.pow(1.15, i);
+			if ($scope.fabergeEgg) price *= 0.99;
+			if ($scope.seasonSavings) price *= 0.99;
+			if ($scope.santasDominion) price *= 0.99;
+			if ($scope.divineDiscount) price *= 0.99;
+			if ($scope.fierceHoarder) price *= 0.98;
+			sum += Math.ceil(price);
 		}
 		return sum;
 	};
