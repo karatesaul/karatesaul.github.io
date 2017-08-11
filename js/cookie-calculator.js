@@ -107,11 +107,26 @@ app.controller('ctrl', ['$scope', function ($scope) {
 
 	$scope.priceDiff = function (obj, desired, current) {
 		var sum = 0;
-		if (current === undefined) {
-			current = obj.current;
+		var des = desired;
+		var cur = current;
+		if (cur === undefined) {
+			cur = obj.current;
 		}
 
-		for (var i = current; i < desired; i++) {
+		if (obj.name === 'Cursor' && $scope.starterKit) {
+			cur -= 10;
+			if (cur < 0) cur = 0;
+			des -= 10;
+			if (des < 0) des = 0;
+		}
+		if (obj.name === 'Grandma' && $scope.starterKitchen) {
+			cur -= 5;
+			if (cur < 0) cur = 0;
+			des -= 5;
+			if (des < 0) des = 0;
+		}
+
+		for (var i = cur; i < des; i++) {
 			var price = obj.initial * Math.pow(1.15, i);
 			if ($scope.fabergeEgg) price *= 0.99;
 			if ($scope.seasonSavings) price *= 0.99;

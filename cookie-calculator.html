@@ -64,7 +64,7 @@
 			<span>100</span>
 		</label>
 	</div>
-	<!-- not working yet
+	<!-- not working yet -->
 	<div>
 		<label>
 			<input type="checkbox" ng-model="fabergeEgg">
@@ -75,7 +75,7 @@
 			<span>Season Savings</span>
 		</label>
 		<label>
-			<input type="checkbox" ng-model="SantasDominion">
+			<input type="checkbox" ng-model="santasDominion">
 			<span>Santa's Dominion</span>
 		</label>
 		<span>|</span>
@@ -101,7 +101,6 @@
 			<span>Fierce Hoarder</span>
 		</label>
 	</div>
-	-->
 	<table>
 		<tr>
 			<th>Name</th>
@@ -119,12 +118,12 @@
 			<td>
 				<button ng-click="increment(building, 'current')">+</button>
 				<input class="number" type="number" min="0" ng-model="building.current">
-				<button ng-click="decrement(building, 'current')">-</button>				
+				<button ng-click="decrement(building, 'current')">-</button>
 			</td>
 			<td>
 				<button ng-click="increment(building, 'desired')">+</button>
 				<input class="number" type="number" min="0" ng-model="building.desired">
-				<button ng-click="decrement(building, 'desired')">-</button>				
+				<button ng-click="decrement(building, 'desired')">-</button>
 			</td>
 			<td class="display">
 				{{priceDiff(building, building.current + 1) | cookieNumber : shortNumbers}}
