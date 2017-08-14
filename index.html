@@ -1,23 +1,23 @@
 <!doctype html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="/css/main.css">
+        <link rel="stylesheet" type="text/css" href="./css/main.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>
+        <script src="karatesaul.js"></script>
+        <script src="src/main/main.js"></script>
+        <script src="src/links/links.js"></script>
+        <script src="src/games/games.js"></script>
     </head>
-    <body>
+    <body ng-app="karatesaul" ng-controller="mainCtrl">
         <h1>Saul Winer</h1>
         <hr>
         <nav id="top-nav">
-            <ul><a href="/">Home</a></ul>
-            <ul><a href="/links.html">Links</a></ul>
-            <ul><a href="/games.html">Games</a></ul>
+            <ul><a href="main">Home</a></ul>
+            <ul><a href="links">Links</a></ul>
+            <ul><a href="games">Games</a></ul>
         </nav>
         <hr>
-        <div id="main">
-            <p>
-                Hey peoples! This is my website.
-                Kinda bare-bones at the moment, but I'll be updating it and using it to host games that I make.
-                In the meantime, check out the <a href="/links.html">links</a> page for some of my other pages.
-            </p>
-        </div>
+        <ng-view></ng-view>
     </body>
 </html>
