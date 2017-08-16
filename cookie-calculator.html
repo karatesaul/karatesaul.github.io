@@ -116,14 +116,14 @@
 		<tr ng-repeat="building in buildings track by $index">
 			<td>{{building.name}}</td>
 			<td>
-				<button ng-click="increment(building, 'current')">+</button>
+				<button ng-click="increment(building, 'current')" tabindex="-1">+</button>
 				<input class="number" type="number" min="0" ng-model="building.current">
-				<button ng-click="decrement(building, 'current')">-</button>
+				<button ng-click="decrement(building, 'current')" tabindex="-1">-</button>
 			</td>
 			<td>
-				<button ng-click="increment(building, 'desired')">+</button>
+				<button ng-click="increment(building, 'desired')" tabindex="-1">+</button>
 				<input class="number" type="number" min="0" ng-model="building.desired">
-				<button ng-click="decrement(building, 'desired')">-</button>
+				<button ng-click="decrement(building, 'desired')" tabindex="-1">-</button>
 			</td>
 			<td class="display">
 				{{priceDiff(building, building.current + 1) | cookieNumber : shortNumbers}}
