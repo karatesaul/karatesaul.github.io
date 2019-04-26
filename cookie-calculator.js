@@ -77,6 +77,11 @@ app.controller('ctrl', ['$scope', function ($scope) {
 			initial: 26000000000000000,
 			current: 0,
 			desired: 0
+		}, {
+			name: 'Fractal Engine',
+			initial: 0,
+			current: 0,
+			desired: 0
 		}
 	];
 	$scope.shortNumbers = true;
@@ -155,7 +160,9 @@ app.filter('cookieNumber', ['$filter', function ($filter) {
 		'Dec',
 		'UnD',
 		'DuD',
-		'TrD'
+		'TrD',
+		'QuD',
+		'QiD',
 	];
 	return function (number, isShortFormat) {
 		if (!isShortFormat || Math.log10(number) < 6) {
