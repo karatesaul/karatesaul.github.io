@@ -3,9 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "preserve": "yarn run build",
+    "serve": "ng serve",
+    "prebuild": "yarn install",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "pretest": "yarn run build",
     "test": "ng test"
   },
   "private": true,
