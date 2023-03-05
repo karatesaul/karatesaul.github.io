@@ -1,6 +1,15 @@
 <mat-toolbar color="primary">
-  <a mat-button routerLink="main">Main</a>
-  <a mat-button routerLink="games">Games</a>
+  <ng-container *ngFor="let item of toolbarItems">
+    <a
+      class="toolbar-item"
+      mat-button
+      [routerLink]="item.routerLink"
+      routerLinkActive="active">
+      {{ item.label }}
+    </a>
+  </ng-container>
 </mat-toolbar>
 
-<router-outlet></router-outlet>
+<div class="app-content">
+  <router-outlet></router-outlet>
+</div>

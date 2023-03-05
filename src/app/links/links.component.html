@@ -1,0 +1,11 @@
+<h1>Links</h1>
+<mat-divider class="link-divider"></mat-divider>
+<ng-container *ngFor="let link of links">
+  <ng-container *ngIf="!link.inactive">
+    <h2>{{link.name}}</h2>
+    <p>
+      <a [href]="link.href" target="_blank">{{link.linkText}}</a>
+    </p>
+    <mat-divider class="link-divider"></mat-divider>
+  </ng-container>
+</ng-container>
